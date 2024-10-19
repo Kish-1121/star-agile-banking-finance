@@ -1,12 +1,12 @@
 resource "aws_instance" "test-server" {
   ami = "ami-06b21ccaeff8cd686"
   instance_type = "t2.micro"
-  key_name = "mykey1"
+  key_name = "mykey2"
   vpc_security_group_ids = ["sg-0eb8a776b5d059e68"]
   connection {
      type = "ssh"
      user = "ec2-user"
-     private_key = file("./mykey1.pem")
+     private_key = file("./mykey2.pem")
      host = self.public_ip
      }
   provisioner "remote-exec" {
